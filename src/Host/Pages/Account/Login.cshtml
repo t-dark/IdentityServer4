@@ -1,4 +1,8 @@
-﻿@model LoginViewModel
+@page
+@model IdentityServer4.Quickstart.UI.LoginModel
+@{
+    ViewData["Title"] = "Login";
+}
 
 <div class="login-page">
     <div class="page-header">
@@ -19,22 +23,22 @@
                     <div class="panel-body">
 
                         <form asp-route="Login">
-                            <input type="hidden" asp-for="ReturnUrl" />
+                            <input type="hidden" asp-for="Input.ReturnUrl" />
 
                             <fieldset>
                                 <div class="form-group">
-                                    <label asp-for="Username"></label>
-                                    <input class="form-control" placeholder="Username" asp-for="Username" autofocus>
+                                    <label asp-for="Input.Username"></label>
+                                    <input class="form-control" placeholder="Username" asp-for="Input.Username" autofocus>
                                 </div>
                                 <div class="form-group">
-                                    <label asp-for="Password"></label>
-                                    <input type="password" class="form-control" placeholder="Password" asp-for="Password" autocomplete="off">
+                                    <label asp-for="Input.Password"></label>
+                                    <input type="password" class="form-control" placeholder="Password" asp-for="Input.Password" autocomplete="off">
                                 </div>
                                 @if (Model.AllowRememberLogin)
                                 {
                                     <div class="form-group login-remember">
-                                        <label asp-for="RememberLogin">
-                                            <input asp-for="RememberLogin">
+                                        <label asp-for="Input.RememberLogin">
+                                            <input asp-for="Input.RememberLogin">
                                             <strong>Remember My Login</strong>
                                         </label>
                                     </div>
@@ -63,9 +67,9 @@
                             {
                                 <li>
                                     <a class="btn btn-default"
-                                       asp-action="ExternalLogin"
+                                       asp-page="ExternalLogin"
                                        asp-route-provider="@provider.AuthenticationScheme"
-                                       asp-route-returnUrl="@Model.ReturnUrl">
+                                       asp-route-returnUrl="@Model.Input.ReturnUrl">
                                         @provider.DisplayName
                                     </a>
                                 </li>
@@ -85,3 +89,4 @@
         }
     </div>
 </div>
+

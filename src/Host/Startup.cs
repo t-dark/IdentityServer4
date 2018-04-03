@@ -62,7 +62,7 @@ namespace Host
             app.UseIdentityServer();
 
             app.UseStaticFiles();
-            app.UseMvcWithDefaultRoute();
+            app.UseMvc();
         }
     }
 

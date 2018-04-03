@@ -1,5 +1,7 @@
-﻿@using Microsoft.AspNetCore.Hosting
-@model ErrorViewModel
+@using Microsoft.AspNetCore.Hosting
+
+@page
+@model Host.Pages.ErrorModel
 @inject IHostingEnvironment host
 
 @{
@@ -20,22 +22,22 @@
 
                 @if (error != null)
                 {
-                    <strong>
-                        <em>
-                            : @error
-                        </em>
-                    </strong>
+                <strong>
+                    <em>
+                        : @error
+                    </em>
+                </strong>
 
                     if (errorDescription != null)
                     {
-                        <div>@errorDescription</div>
+                <div>@errorDescription</div>
                     }
                 }
             </div>
 
             @if (request_id != null)
             {
-                <div class="request-id">Request Id: @request_id</div>
+            <div class="request-id">Request Id: @request_id</div>
             }
         </div>
     </div>
