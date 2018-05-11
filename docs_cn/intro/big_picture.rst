@@ -1,34 +1,33 @@
-The Big Picture
+整体情况
 ===============
 
-Most modern applications look more or less like this:
+大多数现代应用程序看起来或多或少像这样：
 
 .. image:: images/appArch.png
 
-The most common interactions are:
+最常见的交互是：
 
-* Browsers communicate with web applications
+* 浏览器与 Web 应用程序进行通信
 
-* Web applications communicate with web APIs (sometimes on their own, sometimes on behalf of a user)
+* Web 应用程序与 Web API 进行通信（有时是Web应用程序自己发起，有时代表用户发起）
 
-* Browser-based applications communicate with web APIs
+* 基于浏览器的应用程序与 Web API 进行通信
 
-* Native applications communicate with web APIs
+* 本机应用程序与Web API进行通信
 
-* Server-based applications communicate with web APIs
+* 基于服务器的应用程序与Web API进行通信
 
-* Web APIs communicate with web APIs (sometimes on their own, sometimes on behalf of a user)
+* Web API与Web API进行通信（有时是他们自己发起，有时代表用户发起）
 
-Typically each and every layer (front-end, middle-tier and back-end) has to protect resources and
-implement authentication and/or authorization – often against the same user store.
+通常，每个层（前端、中间层和后端）都必须保护资源并实现身份验证/或授权——通常是针对同一用户存储。
 
-Outsourcing these fundamental security functions to a security token service prevents duplicating that functionality across those applications and endpoints.
+将这些基本安全功能外包给安全令牌服务，可防止在这些应用程序和端点之间复制该功能。
 
-Restructuring the application to support a security token service leads to the following architecture and protocols:
+重构应用程序以支持安全令牌服务，会演变成以下体系结构和协议：
 
 .. image:: images/protocols.png
 
-Such a design divides security concerns into two parts:
+这样的设计将安全问题分为两部分：
 
 Authentication
 ^^^^^^^^^^^^^^
