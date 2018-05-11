@@ -1,13 +1,12 @@
-# IdentityServer4 documentation
+# IdentityServer4 文档
 
-The folder contains the documentation for identityserver4.
+该文件夹包含 identityserver4 的文档。
 
-We are using [Read the docs](https://readthedocs.org/) to host the documentation and the rendered version
-can be found [here](https://identityserver4.readthedocs.io).
+我们使用 [Read the docs](https://readthedocs.org/) 网站来托管文档，并且可以在 [这里](https://identityserver4.readthedocs.io)找到发布（rendered）后的版本。
 
-Doc pages are authored in ReStructuredText (RST) - you can find a primer [here](http://www.sphinx-doc.org/en/stable/rest.html).
+Doc 页面格式作者选择的是 ReStructuredText (RST)文件格式 - 文件格式介绍详情，请移步 [这里](http://www.sphinx-doc.org/en/stable/rest.html)。
 
-You can find more information about RTD and Sphinx under the following links:
+你可以在下面的链接中找到更多有关 RTD 和 Sphinx 详情的信息：
 
 * [Read the Docs documentation](https://docs.readthedocs.io/en/latest/index.html)
 * [Sphinx](http://www.sphinx-doc.org/)
