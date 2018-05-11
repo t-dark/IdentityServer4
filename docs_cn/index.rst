@@ -1,46 +1,45 @@
-Welcome to IdentityServer4
+欢迎来到 IdentityServer4
 ==========================
 
 .. image:: images/logo.png
    :align: center
 
-IdentityServer4 is an OpenID Connect and OAuth 2.0 framework for ASP.NET Core 2.
+IdentityServer4 是一款包含和实现了 OpenID Connect 和 OAuth 2.0 协议的，适用于 ASP.NET Core 的框架 。
 
-It enables the following features in your applications:
+它可以在您的应用程序中启用以下功能： 
 
-Authentication as a Service
+作为服务的身份验证
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Centralized login logic and workflow for all of your applications (web, native, mobile, services).
-IdentityServer is an officially `certified <https://openid.net/certification/>`_ implementation of OpenID Connect.
+集中控制你的所有应用 (web, native, mobile, services) 的登录逻辑和工作流。
+IdentityServer 是一个 OpenID Connect `官方认证 <https://openid.net/certification/>`_ 的 OpenID Connect 协议的实现。
 
-Single Sign-on / Sign-out
+单点登录/登出
 ^^^^^^^^^^^^^^^^^^^^^^^^^
-Single sign-on (and out) over multiple application types.
+在多种类型的应用程序上单点登录 (登出) 。
 
-Access Control for APIs
+APIs 访问控制
 ^^^^^^^^^^^^^^^^^^^^^^^
-Issue access tokens for APIs for various types of clients, e.g. server to server, web applications, SPAs and
-native/mobile apps.
+为各种类型的客户机发放 API 访问令牌，例如：服务器到服务器，Web应用程序，SPA和原生/移动应用程序。
 
-Federation Gateway
+联合网关
 ^^^^^^^^^^^^^^^^^^
-Support for external identity providers like Azure Active Directory, Google, Facebook etc.
-This shields your applications from the details of how to connect to these external providers.
+支持 Azure Active Directory, Google, Facebook 等第三方登陆。
+这样就隐藏了让您的应用程序连接到第三方登陆验证的实现细节，方便您快速实现第三方登陆验证。
 
-Focus on Customization
+聚焦定制
 ^^^^^^^^^^^^^^^^^^^^^^
-The most important part - many aspect of IdentityServer can be customized to fit **your** needs.
-Since IdentityServer is a framework and not a boxed product or a SaaS, you can write code to adapt the system the way it makes sense for your scenarios.
+最重要的部分 - IdentityServer 的许多方面可以被定制以适应**您**的需求。
+因为 IdentityServer 是一个框架，而不是一个盒装产品或一个 SaaS，您可以编写代码来调整框架，使其适用于您的使用场景。
 
-Mature Open Source
+成熟的开源
 ^^^^^^^^^^^^^^^^^^
-IdentityServer uses the permissive `Apache 2 <https://www.apache.org/licenses/LICENSE-2.0>`_ license that allows building commercial products on top of it. 
-It is also part of the `.NET Foundation <https://dotnetfoundation.org/>`_ which provides governance and legal backing.
+IdentityServer 使用自由的 `Apache 2 <https://www.apache.org/licenses/LICENSE-2.0>`_ 许可，允许在其之上构建商业产品。 
+它也是提供维护（provides governance）和法律支持的 `.NET Foundation <https://dotnetfoundation.org/>`_ 的一部分。
 
-Free and Commercial Support
+免费和商业支持
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-If you need help building or running your identity platform, :ref:`let us know <refSupport>`.
-There are several ways we can help you out.
+如果您需要在建立和运行你的身份验证平台上得到帮助， :ref:`请告诉我们 <refSupport>`.
+有多种方法可以帮助到您。
 
 .. toctree::
    :maxdepth: 2
