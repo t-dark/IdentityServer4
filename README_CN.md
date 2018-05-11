@@ -8,25 +8,25 @@ IdentityServer4 是由 [OpenID Foundation](https://openid.net) 正式 [认证](h
 
 有关项目文件，请访问 [readthedocs](https://identityserver4.readthedocs.io).
 
-## Overview
-IdentityServer4 consists of multiple repositories (in addition to this repository):
+## 概览
+IdentityServer4 由多个代码库组成 (除了当前库):
 
-* [Samples](https://github.com/IdentityServer/IdentityServer4.Samples)
-* [Access token validation handler for ASP.NET Core](https://github.com/IdentityServer/IdentityServer4.AccessTokenValidation)
-* [Quickstart UI](https://github.com/IdentityServer/IdentityServer4.Quickstart.UI)
-* [ASP.NET Identity integration](https://github.com/IdentityServer/IdentityServer4.AspNetIdentity)
-* [EntityFramework integration](https://github.com/IdentityServer/IdentityServer4.EntityFramework)
+* [例子](https://github.com/IdentityServer/IdentityServer4.Samples)
+* [适用于 ASP.NET Core 的访问令牌验证处理程序](https://github.com/IdentityServer/IdentityServer4.AccessTokenValidation)
+* [快速入门](https://github.com/IdentityServer/IdentityServer4.Quickstart.UI)
+* [集成 ASP.NET Identity](https://github.com/IdentityServer/IdentityServer4.AspNetIdentity)
+* [集成 EntityFramework](https://github.com/IdentityServer/IdentityServer4.EntityFramework)
 
-If you encounter issues or find bugs, please open an issue in this repo here first.
+如果您遇到问题或发现错误，请在 issues 面板中 创建一个 issue 并提交。
 
-## How to build
-IdentityServer is built against the latest ASP.NET Core 2.
+## 如何构建
+IdentityServer 根据最新的 ASP.NET Core 2 构建的。
 
-* [Install](https://www.microsoft.com/net/download/core#/current) the latest .NET Core 2 SDK
-* Run `build.ps1` (Powershell) or `build.sh` (bash)
+* [安装](https://www.microsoft.com/net/download/core#/current) 最新的 .NET Core 2 SDK
+* 运行 `build.ps1` (Powershell) or `build.sh` (bash)
 
 ## ASP.NET Core 1.x
-For using IdentityServer with ASP.NET Core 1.x, you can use the 1.x packages of IdentityServer and [this branch](https://github.com/IdentityServer/IdentityServer4/tree/aspnetcore1). Documentation for 1.x can be found [here](http://docs.identityserver.io/en/aspnetcore1/). The 1.x version is not maintained anymore.
+要将 IdentityServer 与 ASP.NET Core 1.x 一起使用，你可以使用 IdentityServer 的 1.x 包和 [这个分支](https://github.com/IdentityServer/IdentityServer4/tree/aspnetcore1).  1.x 的文档可以在 [这里](http://docs.identityserver.io/en/aspnetcore1/)找到.  1.x 版本不再被维护。
 
 ## Commercial and Community Support
 If you need help with implementing IdentityServer4 or your security architecture in general, there are both free and commercial support options.
