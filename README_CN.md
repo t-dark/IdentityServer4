@@ -1,12 +1,12 @@
-## About IdentityServer4
+## 关于 IdentityServer4
 [<img align="right" width="100px" src="https://dotnetfoundation.org/images/logo_big.svg" />](https://dotnetfoundation.org/projects?q=identityserver&type=project)
 
-IdentityServer is a free, open source [OpenID Connect](http://openid.net/connect/) and [OAuth 2.0](https://tools.ietf.org/html/rfc6749) framework for ASP.NET Core.
-Founded and maintained by [Dominick Baier](https://twitter.com/leastprivilege) and [Brock Allen](https://twitter.com/brocklallen), IdentityServer4 incorporates all the protocol implementations and extensibility points needed to integrate token-based authentication, single-sign-on and API access control in your applications.
-IdentityServer4 is officially [certified](https://openid.net/certification/) by the [OpenID Foundation](https://openid.net) and thus spec-compliant and interoperable.
-It is part of the [.NET Foundation](https://www.dotnetfoundation.org/), and operates under their [code of conduct](https://www.dotnetfoundation.org/code-of-conduct). It is licensed under [Apache 2](https://opensource.org/licenses/Apache-2.0) (an OSI approved license).
+IdentityServer 是一款免费、开源的，并包含和实现了 [OpenID Connect](http://openid.net/connect/) 和 [OAuth 2.0](https://tools.ietf.org/html/rfc6749) 协议的，适用于 ASP.NET Core 的框架 。
+IdentityServer4 由 [Dominick Baier](https://twitter.com/leastprivilege) 和 [Brock Allen](https://twitter.com/brocklallen)创建和维护， 它包含了在应用程序中集成基于令牌的身份验证、单点登录和API访问控制所需的所有协议实现和扩展点。
+IdentityServer4 是由 [OpenID Foundation](https://openid.net) 正式 [认证](https://openid.net/certification/) 因此符合规范并可互操作。
+它是 [.NET Foundation](https://www.dotnetfoundation.org/) 的一部分，并在其 [行为准则](https://www.dotnetfoundation.org/code-of-conduct) 下运行。 它在 [Apache 2](https://opensource.org/licenses/Apache-2.0) （OSI批准的许可证）下获得许可。
 
-For project documentation, please visit [readthedocs](https://identityserver4.readthedocs.io).
+有关项目文件，请访问 [readthedocs](https://identityserver4.readthedocs.io).
 
 ## Overview
 IdentityServer4 consists of multiple repositories (in addition to this repository):
