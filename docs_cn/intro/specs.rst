@@ -1,7 +1,7 @@
-Supported Specifications
+支持协议
 ========================
 
-IdentityServer implements the following specifications:
+IdentityServer 实现了以下协议:
 
 OpenID Connect
 ^^^^^^^^^^^^^^
