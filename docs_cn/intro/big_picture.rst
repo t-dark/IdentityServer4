@@ -29,46 +29,32 @@
 
 这样的设计将安全问题分为两部分：
 
-Authentication
+身份验证
 ^^^^^^^^^^^^^^
-Authentication is needed when an application needs to know the identity of the current user.
-Typically these applications manage data on behalf of that user and need to make sure that this user can only
-access the data for which he is allowed. The most common example for that is (classic) web applications –
-but native and JS-based applications also have a need for authentication.
+当应用程序需要知道当前用户的身份时需要身份验证。
+通常，这些应用程序代表该用户管理数据，并且需要确保该用户只能访问允许他访问的数据。 最常见的例子是（经典的）Web 应用程序——但是本机和基于 js 的应用程序也需要认证。
 
-The most common authentication protocols are SAML2p, WS-Federation and OpenID Connect – SAML2p being the
-most popular and the most widely deployed.
+最常见的身份验证协议是SAML2p，WS-Federation和OpenID Connect - 但 SAML2p 是最流行和最广泛应用的。
 
-OpenID Connect is the newest of the three, but is considered to be the future because it has the
-most potential for modern applications. It was built for mobile application scenarios right from the start
-and is designed to be API friendly.
+OpenID Connect 是三者中最新的，但它被现代应用程序认为是未来最有潜力的。因为它从一开始就被构建为对移动应用场景提供友好 API 访问。
 
-API Access
+API 访问
 ^^^^^^^^^^
-Applications have two fundamental ways with which they communicate with APIs – using the application identity,
-or delegating the user’s identity. Sometimes both methods need to be combined.
+应用程序有两种与 API 通信的基本方式 - 使用应用程序标识，或委托用户的身份。 有时两种方法需要结合起来使用。
 
-OAuth2 is a protocol that allows applications to request access tokens from a security token service and use them
-to communicate with APIs. This delegation reduces complexity in both the client applications as well as the APIs since
-authentication and authorization can be centralized.
+OAuth2 是一种协议，它允许应用程序从安全令牌服务请求访问令牌并使用它们与 API 进行通信。这种机制降低了客户端应用程序与 API 通信的复杂性，因为身份验证和授权可以是集中式的。
 
-OpenID Connect and OAuth 2.0 – better together
+OpenID Connect 和 OAuth 2.0 结合
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-OpenID Connect and OAuth 2.0 are very similar – in fact OpenID Connect is an extension on top of OAuth 2.0.
-The two fundamental security concerns, authentication and API access, are combined into a  single protocol - often with a single round trip to the security token service. 
+OpenID Connect 和 OAuth 2.0 非常相似 - 实际上，OpenID Connect 是在 OAuth 2.0 之上的一个扩展。
+身份认证和 API 访问这两个基本的安全问题被合并为一个协议 - 通常只需一次往返安全令牌服务。
 
-We believe that the combination of OpenID Connect and OAuth 2.0 is the best approach to secure modern
-applications for the foreseeable future. IdentityServer4 is an implementation of these two protocols and is
-highly optimized to solve the typical security problems of today’s mobile, native and web applications.
+我们认为 OpenID Connect 和 OAuth 2.0 的组合，是可预见在未来是保护现代应用程序的最佳方法。IdentityServer4 是这两种协议的实现，并且被高度优化以解决当今移动应用、本地应用和 Web 应用的典型安全问题。
 
-How IdentityServer4 can help
+IdentityServer4 可以帮你做什么
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-IdentityServer is middleware that adds the spec compliant OpenID Connect and OAuth 2.0 endpoints to an arbitrary ASP.NET Core application.
-
-Typically, you build (or re-use) an application that contains a login and logout page (and maybe consent - depending on your needs),
-and the IdentityServer middleware adds the necessary protocol heads to it, so that client applications can talk to it using those standard protocols.
+IdentityServer 是一个可将符合规范的 OpenID Connect 和 OAuth 2.0 端点添加到任意的 ASP.NET Core 应用程序中的中间件。通常，您构建（或重新使用）包含登录和注销页面的应用程序（也许可能同意 - 取决于您的需求），IdentityServer 中间件会向其添加必要的协议头，以便客户端应用程序可以使用这些标准协议与之通信。
 
 .. image:: images/middleware.png
 
-The hosting application can be as complex as you want, but we typically recommend to keep the attack surface as small as possible by including
-authentication related UI only.
+托管应用程序可以像您希望的那样复杂，但我们通常建议通过包含仅与认证相关的 UI 来尽可能减小攻击面。
