@@ -28,23 +28,23 @@ IdentityServer 根据最新的 ASP.NET Core 2 构建的。
 ## ASP.NET Core 1.x
 要将 IdentityServer 与 ASP.NET Core 1.x 一起使用，你可以使用 IdentityServer 的 1.x 包和 [这个分支](https://github.com/IdentityServer/IdentityServer4/tree/aspnetcore1).  1.x 的文档可以在 [这里](http://docs.identityserver.io/en/aspnetcore1/)找到.  1.x 版本不再被维护。
 
-## Commercial and Community Support
-If you need help with implementing IdentityServer4 or your security architecture in general, there are both free and commercial support options.
-See [here](https://identityserver4.readthedocs.io/en/release/intro/support.html) for more details.
+## 商业和社区支持
+如果你需要实施 IdentityServer4 或一般安全架构方面的帮助，这里有免费和商业支持选项。
+详情请看 [这里](https://identityserver4.readthedocs.io/en/release/intro/support.html) 。
 
-## Sponsorship
-If you are a fan of the project or a company that relies on IdentityServer, you might want to consider sponsoring.
-This will help us devote more time to answering questions and doing feature development. If you are interested please head to our [Patreon](https://www.patreon.com/identityserver) page which has further details.
+## 赞助
+如果你是该项目的粉丝或是一个依赖 IdentityServer 的公司，而且你有考虑赞助。
+这将有助于我们花更多时间来回答问题并进行功能开发。如果您有兴趣，请前往我们的 [Patreon](https://www.patreon.com/identityserver) 页面了解更多详情。
 
-## Current corporate sponsors
+## 目前的企业赞助商
 
 [Thinktecture AG](https://www.thinktecture.com)  
 [Ritter Insurance Marketing](https://www.ritterim.com)  
 
-You can see a list of our current sponsors [here](https://github.com/IdentityServer/IdentityServer4/blob/release/SPONSORS.md) - and for companies we have some nice advertisement options as well.
+您可以在 [这里](https://github.com/IdentityServer/IdentityServer4/blob/release/SPONSORS.md)看到我们当前赞助商的名单 - 对于公司来说，我们也有一些不错的广告选项。
 
-## Acknowledgements
-IdentityServer4 is built using the following great open source projects
+## 致谢
+IdentityServer4 使用以下伟大的开源项目构建
 
 * [ASP.NET Core](https://github.com/aspnet)
 * [Json.Net](http://www.newtonsoft.com/json)
@@ -52,4 +52,4 @@ IdentityServer4 is built using the following great open source projects
 * [XUnit](https://xunit.github.io/)
 * [Fluent Assertions](http://www.fluentassertions.com/)
 
-..and last but not least a big thanks to all our [contributors](https://github.com/IdentityServer/IdentityServer4/graphs/contributors)!
+..最后但并非最不重要的一点是非常感谢所有我们的 [贡献者](https://github.com/IdentityServer/IdentityServer4/graphs/contributors)！
