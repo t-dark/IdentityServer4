@@ -1,53 +1,50 @@
-Setup and Overview
+启动和概览
 ==================
 
-There are two fundamental ways to start a new IdentityServer project:
+有两种基本的方式来启动一个新的 IdentityServer 项目:
 
-* start from scratch
-* start with the ASP.NET Identity template in Visual Studio
+* 从空项目开始（从头开始）
+* 从 Visual Studio 的 ASP.NET Identity 模板开始
 
-If you start from scratch, we provide a couple of helpers and in-memory stores, so 
-you don't have to worry about persistence right from the start.
+假如您从头开始，不要担心所有的东西都需要从头弄起，因为我们提供了一些帮助和内存存储方法。
 
-If you start with ASP.NET Identity, we provide an easy way to integrate with that as well.
+假如您从 ASP.NET Identity 模板开始，我们也提供了一种简单的方法来集成它。
 
-The quickstarts provide step by step instructions for various common IdentityServer scenarios.
-They start with the absolute basics and become more complex - 
-it is recommended you do them in order.
+quickstarts 为各种常见的 IdentityServer 使用场景提供了说明，它们绝对是从基础开始，如果要变得更复杂 - 建议您一步一步来。
 
-Every quickstart has a reference solution - you can find the code in the 
+每个 quickstart 都有一个参考的解决方案 - 您可以在 quickstarts 文件夹的
 `IdentityServer4.Samples <https://github.com/IdentityServer/IdentityServer4.Samples>`_
-repo in the quickstarts folder.
+repo 找到参考代码。
 
-Basic setup
+从头开始
 ^^^^^^^^^^^
-The screen shots show Visual Studio - but this is not a requirement.
+Visual Studio 的屏幕截图 - 但这不是必需的。
 
-**Creating the quickstart IdentityServer**
+**新建一个快速启动 IdentityServer**
 
-Start by creating a new ASP.NET Core project.
+首先创建一个 ASP.NET Core 项目。
 
 .. image:: images/0_new_web_project.png
 
-Then select the "Empty" option.
+然后选择 "Empty" 模板选项。
 
 .. image:: images/0_empty_web.png
 
-Next, add the `IdentityServer4` nuget package:
+下一步，在 nuget 把 `IdentityServer4` 软件包添加到项目:
 
 .. image:: images/0_nuget.png
     
-Alternatively you can use Package Manager Console to add the dependency by running the following command:
+当然你也可以通过控制台程序，运行下面的命令来把依赖添加到项目中:
 
     "Install-Package IdentityServer4"
 
-.. note:: IdentityServer build numbers 1.x target ASP.NET Core 1.1, and IdentityServer build numbers 2.x targets ASP.NET Core 2.0 .
+.. note:: ASP.NET Core 1.1 添加版本为 1.x 的 IdentityServer，ASP.NET Core 2.0  添加版本为 2.x 的 IdentityServer。
 
-IdentityServer uses the usual pattern to configure and add services to an ASP.NET Core host.
-In ``ConfigureServices`` the required services are configured and added to the DI system. 
-In ``Configure`` the middleware is added to the HTTP pipeline.
+IdentityServer 通常是通过配置来把 services 附加到 ASP.NET Core 主机（host）的。
+在 ``ConfigureServices`` 中配置请求服务（required services）且把其注册到 DI 系统。 
+在 ``Configure`` 中配置中间件（middleware），使其附加到 HTTP 管道。
 
-Modify your ``Startup.cs`` file to look like this::
+修改你的 ``Startup.cs`` 文件，让它和下面一样::
 
     public class Startup
     {
@@ -68,51 +65,42 @@ Modify your ``Startup.cs`` file to look like this::
         }
     }
 
-``AddIdentityServer`` registers the IdentityServer services in DI. It also registers an in-memory store for runtime state.
-This is useful for development scenarios. For production scenarios you need a persistent or shared store like a database or cache for that.
-See the :ref:`EntityFramework <refEntityFrameworkQuickstart>` quickstart for more information.
+``AddIdentityServer`` 在 DI 中注册 IdentityServer 服务。 它还为运行时状态注册了一个内存存储。这在开发场景很有用。对于生产场景，您需要持久存储或共享存储，如数据库或缓存。
+更多入门信息，请查看 :ref:`EntityFramework <refEntityFrameworkQuickstart>` 。
 
-The ``AddDeveloperSigningCredential`` extension creates temporary key material for signing tokens.
-Again this might be useful to get started, but needs to be replaced by some persistent key material for production scenarios.
-See the :ref:`cryptography docs <refCrypto>` for more information.
+``AddDeveloperSigningCredential`` 一般用于开发环境创建临时登录令牌。对于生产场景，需要持久化一些重要令牌，这个必须要被换掉。更多信息，请查看:ref:`cryptography docs <refCrypto>` 。
 
-.. Note:: IdentityServer is not yet ready to be launched. We will add the required services in the following quickstarts.
+.. Note:: IdentityServer 到这里还不能被启动。接下来我们将添加请求服务。
 
-Modify hosting
+修改 hosting
 ^^^^^^^^^^^^^^^
 
-By default Visual Studio uses IIS Express to host your web project. This is totally fine,
-except that you won't be able to see the real time log output to the console.
+默认情况下，Visual Studio使用IIS Express来托管您的Web项目。这样的话，您除了无法看到实时输出到控制台的日志，其他都很好。 
 
-IdentityServer makes extensive use of logging whereas the "visible" error message in the UI
-or returned to clients are deliberately vague.
+IdentityServer 全部使用日志记录，而在 UI 或返回给客户端中 "可见" 的错误消息是故意简化的。
 
-We recommend to run IdentityServer in the console host. 
-You can do this by switching the launch profile in Visual Studio.
-You also don't need to launch a browser every time you start IdentityServer - you can turn that off as well:
+我们建议在控制台中运行 IdentityServer。 您可以在 Visual Studio 中切换启动配置文件来完成设置。每次启动的时候不需要启动浏览器-因此您可以关闭此功能：
 
 .. image:: images/0_launch_profile.png
 
-In addition, it will be helpful to run IdentityServer on a consistent URL for these quickstarts.
-You should also configure this URL in the launch profile dialog above, and use ``http://localhost:5000/``.
-In the above screenshot  you can see this URL has been configured.
+此外，在快速入门中使用了约定的 URL,这对运行 IdentityServer 非常有帮助。
+您可以在上面的 launch profile 对话框中配置这个 URL，并使用 ``http://localhost:5000/``。在上面的屏幕截图中，您可以看到已配置的 URL。
 
-.. Note:: We recommend to configure the same port for IIS Express and self-hosting. This way you can switch between the two without having to modify any configuration in your clients.
+.. Note::我们建议为 IIS Express 和自托管配置相同的端口。 这样，您可以在两者之间任意切换，而不必修改客户端中的任何配置。
 
-To then choose the console host when you launch, you must select it in the launch menu from Visual Studio:
+要在启动时选择控制台托管，必须在 Visual Studio 的启动菜单中选择它：
 
 .. image:: images/0_choose_launch.png
 
-How to run the quickstart
-^^^^^^^^^^^^^^^^^^^^^^^^^
-As mentioned above every quickstart has a reference solution - you can find the code in the 
+如何运行快速入门（quickstart）项目
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+如上所述，每个 quickstart 都有一个参考的解决方案 - 您可以在 quickstarts 文件夹的 
 `IdentityServer4.Samples <https://github.com/IdentityServer/IdentityServer4.Samples>`_
-repo in the quickstarts folder.
+repo  找到参考代码。
 
-The easiest way to run the individual parts of a quickstart solution is to set the startup mode to "current selection".
-Right click the solution and select "Set Startup Projects":
+运行快速启动解决方案的各个部分的最简单方法是将“当前项目”设置为启动项。 右键点击解决方案并选择 "设置启动项目":
 
 .. image:: images/0_startup_mode.png
 
-Typically you start IdentityServer first, then the API, and then the client. Only run in the debugger if you actually want to debug.
-Otherwise Ctrl+F5 is the best way to run the projects.
+通常，您首先启动IdentityServer，然后启动API，然后启动客户端。 如果你真的想调试，只能在调试器中运行。
+否则，Ctrl + F5是运行项目的最佳方式。
