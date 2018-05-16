@@ -1,5 +1,5 @@
 .. _refClientCredentialsQuickstart:
-Protecting an API using Client Credentials
+使用客户端凭据保护 API
 ==========================================
 
 This quickstart presents the most basic scenario for protecting APIs using IdentityServer.
