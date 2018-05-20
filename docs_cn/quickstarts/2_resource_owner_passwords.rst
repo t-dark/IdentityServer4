@@ -57,14 +57,11 @@ OAuth 2.0 协议允许资源拥有者给客户端密码授权：客户端向令�
 * 增加对用户相关服务的支持，通常由登录UI使用 (我们将在下一个 quickstart 示例中使用它)
 * 增加了基于配置文件获取测试用户信息的服务支持 (在下一个 quickstart 示例中您将学到更多关于用户信息文件配置方面的知识)
 
-Adding a client for the resource owner password grant
+增加了资源所有者授权客户端密码访问的支持（密码授权访问）
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-You could simply add support for the grant type to our existing client by changing the
-``AllowedGrantTypes`` property. If you need your client to be able to use both grant types
-that is absolutely supported.
+您可以通过改变 ``AllowedGrantTypes`` 属性来简单地为现有客户添加对 grant 类型的支持。 如果您需要您的客户端能够完全支持所有授权类型。
 
-Typically you want to create a separate client for the resource owner use case,
-add the following to your clients configuration::
+通常，您希望为资源所有者用例创建一个单独的客户端，请将以下内容添加到您的客户端配置::
 
     public static IEnumerable<Client> GetClients()
     {
@@ -87,13 +84,11 @@ add the following to your clients configuration::
         };
     }
 
-Requesting a token using the password grant
+使用密码授权请求令牌
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-The client looks very similar to what we did for the client credentials grant.
-The main difference is now that the client would collect the user's password somehow,
-and send it to the token service during the token request.
+客户端看起来非常类似于我们为客户凭证授权所做的工作。主要的区别在于，客户端会以某种方式收集用户的密码，并在令牌请求期间将其发送给令牌服务。
 
-Again IdentityModel's ``TokenClient`` can help out here::
+因此 IdentityModel 的 ``TokenClient`` 可以提供帮助::
 
     // request token
     var tokenClient = new TokenClient(disco.TokenEndpoint, "ro.client", "secret");
@@ -108,9 +103,7 @@ Again IdentityModel's ``TokenClient`` can help out here::
     Console.WriteLine(tokenResponse.Json);
     Console.WriteLine("\n\n");
 
-When you send the token to the identity API endpoint, you will notice one small
-but important difference compared to the client credentials grant. The access token will
-now contain a ``sub`` claim which uniquely identifies the user. This "sub" claim can be seen by examining the content variable after the call to the API and also will be displayed on the screen by the console application.
+当您将令牌发送到identity API端点时，您将注意到一个小的但与客户端证书授权相比有着重要的不同。访问令牌将
+包含一个 ``sub`` 声明，它能够惟一地标识用户。这个 "sub"  声明可以通过在调用API之后检查内容变量来查看，也可以通过控制台应用程序显示在屏幕上。
 
-The presence (or absence) of the ``sub`` claim lets the API distinguish between calls on behalf
-of clients and calls on behalf of users.
+``sub`` 声明的存在（或不存在）使 API 在调用时区分是客户端调用还是用户调用。
