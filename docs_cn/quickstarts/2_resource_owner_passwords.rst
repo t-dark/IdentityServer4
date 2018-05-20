@@ -1,27 +1,22 @@
 .. _refResosurceOwnerQuickstart:
-Protecting an API using Passwords
+使用密码保护 API
 =================================
 
-The OAuth 2.0 resource owner password grant allows a client to send username and password
-to the token service and get an access token back that represents that user.
+OAuth 2.0 协议允许资源拥有者给客户端密码授权：客户端向令牌服务发送用户密码，以获取代表该用户的访问令牌。
 
-The spec recommends using the resource owner password grant only for "trusted" (or legacy) applications.
-Generally speaking you are typically far better off using one of the interactive
-OpenID Connect flows when you want to authenticate a user and request access tokens.
+该规范建议仅将“资源所有者密码授予”用于“可信”（或旧版）应用程序。一般来说，当您想验证用户身份并请求访问令牌时，使用交互式流程之一的 OpenID Connect 协议要更好一点。
 
-Nevertheless, this grant type allows us to introduce the concept of users to our
-quickstart IdentityServer, and that's why we show it.
+虽然这么说，但是这种授权类型允许我们将用户的概念引入到我们的快速入门 IdentityServer 中，这就是我们展示它的原因。
 
-Adding users
+添加用户
 ^^^^^^^^^^^^
-Just like there are in-memory stores for resources (aka scopes) and clients, there is also one for users.
+就像资源（又称作用域）和客户端使用内存存储一样，用户也是这么存储的。
 
-.. note:: Check the ASP.NET Identity based quickstarts for more information on how to properly store and manage user accounts.
+.. note:: 有关如何正确存储和管理用户帐户的更多信息，请查看基于 ASP.NET Identity 的快速入门。
 
-The class ``TestUser`` represents a test user and its claims. Let's create a couple of users
-by adding the following code to our config class:
+``TestUser`` 类表示测试用户及其声明。让我们通过将以下代码添加到我们的配置类来创建几个用户：
 
-First add the following using statement to the ``Config.cs`` file::
+首先将以下 using 引用申明添加到 ``Config.cs`` 文件::
 
     using IdentityServer4.Test;
 
@@ -44,7 +39,7 @@ First add the following using statement to the ``Config.cs`` file::
         };
     }
 
-Then register the test users with IdentityServer::
+然后通过 IdentityServer 注册测试用户::
 
     public void ConfigureServices(IServiceCollection services)
     {
@@ -56,11 +51,11 @@ Then register the test users with IdentityServer::
             .AddTestUsers(Config.GetUsers());
     }
 
-The ``AddTestUsers`` extension method does a couple of things under the hood
+``AddTestUsers`` 扩展方法在底层做了几件事情
 
-* adds support for the resource owner password grant
-* adds support to user related services typically used by a login UI (we'll use that in the next quickstart)
-* adds support for a profile service based on the test users (you'll learn more about that in the next quickstart)
+* 增加了对资源所有者密码授权的支持
+* 增加对用户相关服务的支持，通常由登录UI使用 (我们将在下一个 quickstart 示例中使用它)
+* 增加了基于配置文件获取测试用户信息的服务支持 (在下一个 quickstart 示例中您将学到更多关于用户信息文件配置方面的知识)
 
 Adding a client for the resource owner password grant
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
