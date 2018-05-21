@@ -1,26 +1,20 @@
 .. _refImplicitQuickstart:
-Adding User Authentication with OpenID Connect
+使用 OpenID Connect 添加用户验证
 ==============================================
 
-In this quickstart we want to add support for interactive user authentication via the
-OpenID Connect protocol to our IdentityServer.
+在这个 quickstart 中，我们希望为我们的 IdentityServer 添加对交互式用户身份验证之一的 OpenID Connect 协议的支持。
 
-Once that is in place, we will create an MVC application that will use IdentityServer for 
-authentication.
+配置完成之后，我们创建一个使用 IdentityServer 身份验证的 MVC 应用程序。
 
-Adding the UI
+添加 UI
 ^^^^^^^^^^^^^
-All the protocol support needed for OpenID Connect is already built into IdentityServer.
-You need to provide the necessary UI parts for login, logout, consent and error.
+OpenID Connect 所需的所有协议支持都已内置到 IdentityServer 中。 您只需要为登录，注销，同意和错误提供必要的 UI 部分即可。
 
-While the look & feel as well as the exact workflows will probably always differ in every
-IdentityServer implementation, we provide an MVC-based sample UI that you can use as a starting point.
+而z在每个不同场景中需要实现的 IdentityServer 服务器验证也可能不同，因此我们提供了一个简单的基于 MVC UI 的示例，您可以以它为起点进行扩展学习。
 
-This UI can be found in the `Quickstart UI repo <https://github.com/IdentityServer/IdentityServer4.Quickstart.UI/tree/release>`_.
-You can either clone or download this repo and drop the controllers, views, models and CSS into your IdentityServer web application.
+这个 UI 可以在 `Quickstart UI repo <https://github.com/IdentityServer/IdentityServer4.Quickstart.UI/tree/release>`_ 中找到。您可以克隆或下载此repo，并将控制器，视图，模型和CSS放入您的IdentityServer Web应用程序。
 
-Alternatively you can run this command from the command line in the same directory as your IdentityServer web application to
-automate the download::
+或者，您可以从IdentityServer Web应用程序所在的同一目录中的命令行运行此命令来自动执行下载::
 
     iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/IdentityServer/IdentityServer4.Quickstart.UI/release/get.ps1'))
 
