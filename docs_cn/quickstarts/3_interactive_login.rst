@@ -18,8 +18,8 @@ OpenID Connect 所需的所有协议支持都已内置到 IdentityServer 中。 
 
     iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/IdentityServer/IdentityServer4.Quickstart.UI/release/get.ps1'))
 
-Once you have added the MVC UI assets, you will also need to add MVC to the hosting application, both in the DI system and in the pipeline.
-Add MVC to ``ConfigureServices`` with the ``AddMvc`` extension method::
+一旦添加了 MVC UI 框架，您还需要将 MVC 添加到宿主程序中：无论是 DI 系统还是管道中。
+使用 ``AddMvc`` 扩展方法将 MVC 添加到 ``ConfigureServices`` 中::
 
     public void ConfigureServices(IServiceCollection services)
     {
@@ -33,7 +33,7 @@ Add MVC to ``ConfigureServices`` with the ``AddMvc`` extension method::
             .AddTestUsers(Config.GetUsers());
     }
 
-Add MVC as the last middleware in the pipeline in ``Configure`` with the ``UseMvc`` extension method::
+使用 ``UseMvc`` 扩展方法将 MVC 管道中间件通过 ``Configure`` 注册到管道中::
 
     public void Configure(IApplicationBuilder app, IHostingEnvironment env)
     {
@@ -48,8 +48,7 @@ Add MVC as the last middleware in the pipeline in ``Configure`` with the ``UseMv
         app.UseMvcWithDefaultRoute();
     }
 
-See the `readme <https://github.com/IdentityServer/IdentityServer4.Quickstart.UI/blob/release/README.md>`_ for the quickstart UI for more information. 
-
+更多 quickstart UI 信息，请查看 `readme <https://github.com/IdentityServer/IdentityServer4.Quickstart.UI/blob/release/README.md>`_ 。
 .. note:: The ``release`` branch of the UI repo has the UI that matches the latest stable release. The ``dev`` branch goes along with the current dev build of IdentityServer4. If you are looking for a specific version of the UI - check the tags.
 
 Spend some time inspecting the controllers and models, the better you understand them, 
