@@ -86,6 +86,42 @@ namespace IdentityServer4.IntegrationTests.Clients
         }
 
         [Fact]
+        public async Task Valid_request_with_confirmation_should_return_expected_payload()
+        {
+            var client = new TokenClient(
+                TokenEndpoint,
+                "client.cnf",
+                "foo",
+                innerHttpMessageHandler: _handler);
+
+            var response = await client.RequestClientCredentialsAsync("api1");
+
+            response.IsError.Should().Be(false);
+            response.ExpiresIn.Should().Be(3600);
+            response.TokenType.Should().Be("Bearer");
+            response.IdentityToken.Should().BeNull();
+            response.RefreshToken.Should().BeNull();
+
+            var payload = GetPayload(response);
+
+            payload.Count().Should().Be(7);
+            payload.Should().Contain("iss", "https://idsvr4");
+            payload.Should().Contain("client_id", "client.cnf");
+            
+
+            var audiences = ((JArray)payload["aud"]).Select(x => x.ToString());
+            audiences.Count().Should().Be(2);
+            audiences.Should().Contain("https://idsvr4/resources");
+            audiences.Should().Contain("api");
+
+            var scopes = payload["scope"] as JArray;
+            scopes.First().ToString().Should().Be("api1");
+
+            var cnf = payload["cnf"] as JObject;
+            cnf["x5t#S256"].ToString().Should().Be("foo");
+        }
+
+        [Fact]
         public async Task Requesting_multiple_scopes_should_return_expected_payload()
         {
             var client = new TokenClient(
@@ -195,6 +231,40 @@ namespace IdentityServer4.IntegrationTests.Clients
             payload.Count().Should().Be(6);
             payload.Should().Contain("iss", "https://idsvr4");
             payload.Should().Contain("client_id", "client");
+
+            var audiences = ((JArray)payload["aud"]).Select(x => x.ToString());
+            audiences.Count().Should().Be(2);
+            audiences.Should().Contain("https://idsvr4/resources");
+            audiences.Should().Contain("api");
+
+            var scopes = payload["scope"] as JArray;
+            scopes.First().ToString().Should().Be("api1");
+        }
+
+
+        [Fact]
+        public async Task Request_For_client_with_no_secret_and_basic_authentication_should_succeed()
+        {
+            var client = new TokenClient(
+                TokenEndpoint,
+                "client.no_secret",
+                "",
+                _handler,
+                AuthenticationStyle.BasicAuthentication);
+
+            var response = await client.RequestClientCredentialsAsync("api1");
+
+            response.IsError.Should().Be(false);
+            response.ExpiresIn.Should().Be(3600);
+            response.TokenType.Should().Be("Bearer");
+            response.IdentityToken.Should().BeNull();
+            response.RefreshToken.Should().BeNull();
+
+            var payload = GetPayload(response);
+
+            payload.Count().Should().Be(6);
+            payload.Should().Contain("iss", "https://idsvr4");
+            payload.Should().Contain("client_id", "client.no_secret");
 
             var audiences = ((JArray)payload["aud"]).Select(x => x.ToString());
             audiences.Count().Should().Be(2);
